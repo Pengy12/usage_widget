@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "icons": "python3 dev/generate-icons.py",
     "build": "tsc -p tsconfig.json && node scripts/copy-static.js",
     "watch": "node scripts/copy-static.js && tsc -p tsconfig.json --watch",
     "start": "npm run build && electron .",
