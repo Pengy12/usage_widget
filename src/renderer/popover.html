@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; script-src 'self'"
+    />
+    <title>Usage Widget</title>
+    <link rel="stylesheet" href="popover.css" />
+  </head>
+  <body>
+    <div class="panel">
+      <div class="header">
+        <span class="title">Claude Usage</span>
+        <button id="refresh" title="Refresh">&#8635;</button>
+      </div>
+
+      <div id="message" class="message" hidden></div>
+
+      <div id="bars">
+        <div class="bar-row">
+          <div class="bar-label">
+            <span>Session</span>
+            <span id="session-pct">&ndash;</span>
+          </div>
+          <div class="bar-track"><div id="session-fill" class="bar-fill"></div></div>
+          <div id="session-reset" class="bar-reset"></div>
+        </div>
+
+        <div class="bar-row">
+          <div class="bar-label">
+            <span>Weekly</span>
+            <span id="weekly-pct">&ndash;</span>
+          </div>
+          <div class="bar-track"><div id="weekly-fill" class="bar-fill"></div></div>
+          <div id="weekly-reset" class="bar-reset"></div>
+        </div>
+      </div>
+
+      <div id="updated" class="updated"></div>
+    </div>
+    <script src="popover.js"></script>
+  </body>
+</html>

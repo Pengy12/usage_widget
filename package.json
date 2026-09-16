@@ -1,0 +1,46 @@
+{
+  "name": "usage-widget",
+  "productName": "Usage Widget",
+  "version": "0.1.0",
+  "description": "Tray widget for tracking AI usage limits, starting with Claude.",
+  "main": "dist/main/index.js",
+  "author": "Pengy12",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-static.js",
+    "watch": "node scripts/copy-static.js && tsc -p tsconfig.json --watch",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.5.0"
+  },
+  "build": {
+    "appId": "com.pengy12.usagewidget",
+    "productName": "Usage Widget",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "assets/icon.png",
+      "target": "dmg"
+    },
+    "win": {
+      "icon": "assets/icon.png",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": "AppImage"
+    }
+  }
+}
