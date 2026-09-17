@@ -12,32 +12,41 @@
   <body>
     <div class="panel">
       <div class="header">
-        <span class="title">Claude Usage</span>
+        <div class="header-left">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="title">Claude Usage</span>
+        </div>
         <button id="refresh" title="Refresh">&#8635;</button>
       </div>
+      <div class="divider"></div>
 
       <div id="message" class="message" hidden></div>
 
       <div id="bars">
-        <div class="bar-row">
-          <div class="bar-label">
-            <span>Session</span>
-            <span id="session-pct">&ndash;</span>
+        <div class="row">
+          <div class="row-top">
+            <div class="row-text">
+              <span class="row-title">Session</span>
+              <span id="session-reset" class="row-sub"></span>
+            </div>
+            <span id="session-pct" class="row-pct">&ndash;</span>
           </div>
           <div class="bar-track"><div id="session-fill" class="bar-fill"></div></div>
-          <div id="session-reset" class="bar-reset"></div>
         </div>
 
-        <div class="bar-row">
-          <div class="bar-label">
-            <span>Weekly</span>
-            <span id="weekly-pct">&ndash;</span>
+        <div class="row">
+          <div class="row-top">
+            <div class="row-text">
+              <span class="row-title">Weekly</span>
+              <span id="weekly-reset" class="row-sub"></span>
+            </div>
+            <span id="weekly-pct" class="row-pct">&ndash;</span>
           </div>
           <div class="bar-track"><div id="weekly-fill" class="bar-fill"></div></div>
-          <div id="weekly-reset" class="bar-reset"></div>
         </div>
       </div>
 
+      <div class="divider"></div>
       <div id="updated" class="updated"></div>
     </div>
     <script src="popover.js"></script>

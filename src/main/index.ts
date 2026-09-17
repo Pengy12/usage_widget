@@ -21,13 +21,13 @@ if (!app.requestSingleInstanceLock()) {
     }
   };
 
-  const togglePopover = (): void => {
+  const togglePopover = (bounds?: Electron.Rectangle): void => {
     if (!tray || !popover) return;
     if (popover.isVisible()) {
       popover.hide();
       return;
     }
-    positionPopover(popover, tray);
+    positionPopover(popover, bounds ?? tray.getBounds());
     popover.show();
     popover.focus();
     pushStateToRenderer(poller.getState());
@@ -40,7 +40,7 @@ if (!app.requestSingleInstanceLock()) {
     tray = createTray();
     popover = createPopover();
 
-    tray.on('click', togglePopover);
+    tray.on('click', (_event, bounds) => togglePopover(bounds));
     tray.on('right-click', () => {
       if (!tray) return;
       tray.popUpContextMenu(buildContextMenu(() => void poller.requestRefresh()));
