@@ -74,6 +74,13 @@ export function buildContextMenu(onRefresh: () => void): Menu {
   return Menu.buildFromTemplate([
     { label: 'Refresh now', click: onRefresh },
     { type: 'separator' },
+    {
+      label: 'Start at Login',
+      type: 'checkbox',
+      checked: app.getLoginItemSettings().openAtLogin,
+      click: (item) => app.setLoginItemSettings({ openAtLogin: item.checked }),
+    },
+    { type: 'separator' },
     { label: 'Quit', click: () => app.quit() },
   ]);
 }

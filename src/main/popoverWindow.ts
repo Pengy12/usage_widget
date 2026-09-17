@@ -19,6 +19,7 @@ export function createPopover(): BrowserWindow {
       preload: join(__dirname, '..', 'preload', 'popover-preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
+      spellcheck: false,
     },
   });
 

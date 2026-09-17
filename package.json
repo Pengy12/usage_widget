@@ -12,7 +12,8 @@
     "build": "tsc -p tsconfig.json && node scripts/copy-static.js",
     "watch": "node scripts/copy-static.js && tsc -p tsconfig.json --watch",
     "start": "npm run build && electron .",
-    "dist": "npm run build && electron-builder"
+    "dist": "npm run build && electron-builder",
+    "release": "npm run build && electron-builder --publish always"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
@@ -23,6 +24,14 @@
   "build": {
     "appId": "com.pengy12.usagewidget",
     "productName": "Usage Widget",
+    "compression": "maximum",
+    "artifactName": "UsageWidget-${os}.${ext}",
+    "publish": {
+      "provider": "github",
+      "owner": "Pengy12",
+      "repo": "usage_widget",
+      "releaseType": "release"
+    },
     "directories": {
       "output": "release"
     },
@@ -38,6 +47,9 @@
     "win": {
       "icon": "assets/icon.png",
       "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": true
     },
     "linux": {
       "icon": "assets/icon.png",
