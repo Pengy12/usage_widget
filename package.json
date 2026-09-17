@@ -1,7 +1,7 @@
 {
   "name": "usage-widget",
   "productName": "Usage Widget",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tray widget for tracking AI usage limits, starting with Claude.",
   "main": "dist/main/index.js",
   "author": "Pengy12",
